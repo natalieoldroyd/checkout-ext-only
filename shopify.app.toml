@@ -1,0 +1,27 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "8e5514434f2e8d4890c71c6efd9277ac"
+name = "checkout-ext-only"
+application_url = "https://promotional-return-becomes-receives.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "checkout-ext-build.myshopify.com"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://promotional-return-becomes-receives.trycloudflare.com/auth/callback",
+  "https://promotional-return-becomes-receives.trycloudflare.com/auth/shopify/callback",
+  "https://promotional-return-becomes-receives.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-01"
+
+[pos]
+embedded = false
