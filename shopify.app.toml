@@ -2,7 +2,7 @@
 
 client_id = "8e5514434f2e8d4890c71c6efd9277ac"
 name = "checkout-ext-only"
-application_url = "https://promotional-return-becomes-receives.trycloudflare.com"
+application_url = "https://lee-cell-competition-wine.trycloudflare.com"
 embedded = true
 
 [build]
@@ -15,9 +15,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://promotional-return-becomes-receives.trycloudflare.com/auth/callback",
-  "https://promotional-return-becomes-receives.trycloudflare.com/auth/shopify/callback",
-  "https://promotional-return-becomes-receives.trycloudflare.com/api/auth/callback"
+  "https://lee-cell-competition-wine.trycloudflare.com/auth/callback",
+  "https://lee-cell-competition-wine.trycloudflare.com/auth/shopify/callback",
+  "https://lee-cell-competition-wine.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

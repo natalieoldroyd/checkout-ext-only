@@ -1133,7 +1133,7 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState2(initialState) {
+          function useState3(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1145,7 +1145,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect2(create, deps) {
+          function useEffect3(create, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useEffect(create, deps);
           }
@@ -1157,7 +1157,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useLayoutEffect(create, deps);
           }
-          function useCallback2(callback, deps) {
+          function useCallback(callback, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useCallback(callback, deps);
           }
@@ -1923,11 +1923,11 @@
           exports.memo = memo2;
           exports.startTransition = startTransition;
           exports.unstable_act = act;
-          exports.useCallback = useCallback2;
+          exports.useCallback = useCallback;
           exports.useContext = useContext3;
           exports.useDebugValue = useDebugValue;
           exports.useDeferredValue = useDeferredValue;
-          exports.useEffect = useEffect2;
+          exports.useEffect = useEffect3;
           exports.useId = useId;
           exports.useImperativeHandle = useImperativeHandle;
           exports.useInsertionEffect = useInsertionEffect;
@@ -1935,7 +1935,7 @@
           exports.useMemo = useMemo2;
           exports.useReducer = useReducer;
           exports.useRef = useRef2;
-          exports.useState = useState2;
+          exports.useState = useState3;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -2077,18 +2077,18 @@
           var localSetImmediate = typeof setImmediate !== "undefined" ? setImmediate : null;
           var isInputPending = typeof navigator !== "undefined" && navigator.scheduling !== void 0 && navigator.scheduling.isInputPending !== void 0 ? navigator.scheduling.isInputPending.bind(navigator.scheduling) : null;
           function advanceTimers(currentTime) {
-            var timer = peek(timerQueue);
-            while (timer !== null) {
-              if (timer.callback === null) {
+            var timer2 = peek(timerQueue);
+            while (timer2 !== null) {
+              if (timer2.callback === null) {
                 pop(timerQueue);
-              } else if (timer.startTime <= currentTime) {
+              } else if (timer2.startTime <= currentTime) {
                 pop(timerQueue);
-                timer.sortIndex = timer.expirationTime;
-                push(taskQueue, timer);
+                timer2.sortIndex = timer2.expirationTime;
+                push(taskQueue, timer2);
               } else {
                 return;
               }
-              timer = peek(timerQueue);
+              timer2 = peek(timerQueue);
             }
           }
           function handleTimeout(currentTime) {
@@ -2429,9 +2429,9 @@
         module.exports = function $$$reconciler($$$hostConfig) {
           var exports2 = {};
           "use strict";
-          var React = require_react();
+          var React2 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React2.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -6229,7 +6229,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React.Component().refs;
+          var emptyRefsObject = new React2.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -17540,7 +17540,7 @@
       if (true) {
         (function() {
           "use strict";
-          var React = require_react();
+          var React2 = require_react();
           var REACT_ELEMENT_TYPE = Symbol.for("react.element");
           var REACT_PORTAL_TYPE = Symbol.for("react.portal");
           var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
@@ -17566,7 +17566,7 @@
             }
             return null;
           }
-          var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React2.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           function error(format) {
             {
               {
@@ -18423,6 +18423,9 @@
     }
   });
 
+  // extensions/countdown/src/Checkout.jsx
+  var import_react13 = __toESM(require_react());
+
   // node_modules/@remote-ui/rpc/build/esm/memory.mjs
   function isBasicObject(value) {
     if (value == null || typeof value !== "object")
@@ -19124,18 +19127,6 @@
   // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/BlockStack/BlockStack.mjs
   var BlockStack = createRemoteComponent("BlockStack");
 
-  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/Button/Button.mjs
-  var Button = createRemoteComponent("Button");
-
-  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/Choice/Choice.mjs
-  var Choice = createRemoteComponent("Choice");
-
-  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/ChoiceList/ChoiceList.mjs
-  var ChoiceList = createRemoteComponent("ChoiceList");
-
-  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/Heading/Heading.mjs
-  var Heading = createRemoteComponent("Heading");
-
   // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/Text/Text.mjs
   var Text = createRemoteComponent("Text");
 
@@ -19473,22 +19464,6 @@ ${errorInfo.componentStack}`);
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/BlockStack/BlockStack.mjs
   var BlockStack2 = createRemoteReactComponent(BlockStack);
 
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/Button/Button.mjs
-  var Button2 = createRemoteReactComponent(Button, {
-    fragmentProps: ["overlay"]
-  });
-
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/Choice/Choice.mjs
-  var Choice2 = createRemoteReactComponent(Choice, {
-    fragmentProps: ["details", "primaryContent", "secondaryContent", "tertiaryContent"]
-  });
-
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/ChoiceList/ChoiceList.mjs
-  var ChoiceList2 = createRemoteReactComponent(ChoiceList);
-
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/Heading/Heading.mjs
-  var Heading2 = createRemoteReactComponent(Heading);
-
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/Text/Text.mjs
   var Text2 = createRemoteReactComponent(Text);
 
@@ -19496,7 +19471,7 @@ ${errorInfo.componentStack}`);
   var View2 = createRemoteReactComponent(View);
 
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/hooks/api.mjs
-  var import_react15 = __toESM(require_react(), 1);
+  var import_react11 = __toESM(require_react(), 1);
 
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/errors.mjs
   var CheckoutUIExtensionError = class extends Error {
@@ -19508,151 +19483,139 @@ ${errorInfo.componentStack}`);
 
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/hooks/api.mjs
   function useApi(_target) {
-    const api = (0, import_react15.useContext)(ExtensionApiContext);
+    const api = (0, import_react11.useContext)(ExtensionApiContext);
     if (api == null) {
       throw new CheckoutUIExtensionError("You can only call this hook when running as a UI extension.");
     }
     return api;
   }
 
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/hooks/storage.mjs
-  function useStorage() {
-    return useApi().storage;
+  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/hooks/subscription.mjs
+  var import_react12 = __toESM(require_react(), 1);
+  function useSubscription(subscription) {
+    const [, setValue] = (0, import_react12.useState)(subscription.current);
+    (0, import_react12.useEffect)(() => {
+      let didUnsubscribe = false;
+      const checkForUpdates = (newValue) => {
+        if (didUnsubscribe) {
+          return;
+        }
+        setValue(newValue);
+      };
+      const unsubscribe = subscription.subscribe(checkForUpdates);
+      checkForUpdates(subscription.current);
+      return () => {
+        didUnsubscribe = true;
+        unsubscribe();
+      };
+    }, [subscription]);
+    return subscription.current;
   }
 
-  // extensions/post-purchase-survey/src/Checkout.jsx
-  var import_react16 = __toESM(require_react());
-  var import_jsx_runtime4 = __toESM(require_jsx_runtime());
-  var thankYouBlock = reactExtension("purchase.thank-you.block.render", () => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Attribution, {}));
-  var orderDetailsBlock = reactExtension("customer-account.order-status.block.render", () => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(ProductReview, {}));
-  function Attribution() {
-    const [attribution, setAttribution] = (0, import_react16.useState)("");
-    const [loading, setLoading] = (0, import_react16.useState)(false);
-    const [attributionSubmitted, setAttributionSubmitted] = useStorageState("attribution-submitted");
-    const data = useStorageState("attribution-submitted");
-    function handleSubmit() {
-      return __async(this, null, function* () {
-        setLoading(true);
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            console.log("Submitted:", attribution);
-            setLoading(false);
-            setAttributionSubmitted(true);
-            resolve();
-          }, 750);
-        });
-      });
-    }
-    if (attributionSubmitted.loading || attributionSubmitted.data === true) {
-      return null;
-    }
-    console.log("data", data);
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Survey, { title: "How did you hear about us ?", onSubmit: handleSubmit, loading, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-      ChoiceList2,
-      {
-        name: "sale-attribution",
-        value: attribution,
-        onChange: setAttribution,
-        children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(BlockStack2, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "tv", children: "TV" }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "podcast", children: "Podcast" }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "family", children: "From a friend or family member" }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "tiktok", children: "Tiktok" })
-        ] })
-      }
-    ) });
+  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/hooks/settings.mjs
+  function useSettings() {
+    const settings = useSubscription(useApi().settings);
+    return settings;
   }
-  function ProductReview() {
-    const [productReview, setProductReview] = (0, import_react16.useState)("");
-    const [loading, setLoading] = (0, import_react16.useState)(false);
-    const [productReviewed, setProductReviewed] = useStorageState("product-reviewed");
-    const storageData = useStorageState("product-reviewed");
-    function handleSubmit() {
-      return __async(this, null, function* () {
-        setLoading(true);
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            console.log("Submitted:", productReview);
-            setLoading(false);
-            setProductReviewed(true);
-            resolve();
-          }, 750);
-        });
-      });
-    }
-    if (productReviewed.loading || productReviewed.data) {
-      return null;
-    }
-    console.log("storage data", storageData);
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-      Survey,
-      {
-        title: "How do you like your purchase?",
-        description: "We would like to learn if you are enjoying your purchase.",
-        onSubmit: handleSubmit,
-        loading,
-        children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-          ChoiceList2,
-          {
-            name: "product-review",
-            value: productReview,
-            onChange: setProductReview,
-            children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(BlockStack2, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "5", children: "Amazing! Very happy with it." }),
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "4", children: "It's okay, I expected more." }),
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "3", children: "Eh. There are better options out there." }),
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "2", children: "I regret the purchase." })
-            ] })
+
+  // extensions/countdown/src/Checkout.jsx
+  var import_jsx_runtime4 = __toESM(require_jsx_runtime());
+  var timer = reactExtension("purchase.checkout.header.render-after", () => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(App, {}));
+  function App() {
+    const {
+      timer_before_text,
+      timer_after_text,
+      timer: timer2,
+      timer_ends,
+      timer_text_color,
+      timer_text_size,
+      timer_size,
+      timer_color
+    } = useSettings();
+    const calculateEndTime = (timer3) => {
+      const currentTime = /* @__PURE__ */ new Date();
+      const endTime = new Date(currentTime.getTime() + timer3 * 6e4);
+      return endTime;
+    };
+    const getRemainingTimeInSeconds = (endTime) => {
+      const currentTime = /* @__PURE__ */ new Date();
+      const remainingTimeInSeconds = Math.floor((endTime - currentTime) / 1e3);
+      return remainingTimeInSeconds >= 0 ? remainingTimeInSeconds : 0;
+    };
+    const setCookie = (name, value, days) => {
+      const expirationDate = /* @__PURE__ */ new Date();
+      expirationDate.setTime(expirationDate.getTime() + days * 24 * 60 * 60 * 1e3);
+      document.cookie = `${name}=${value}; expires=${expirationDate.toUTCString()}; path=/`;
+    };
+    const getCookie = (name) => {
+      const cookieName = `${name}=`;
+      const cookies = document.cookie.split(";");
+      for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i];
+        while (cookie.charAt(0) === " ") {
+          cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf(cookieName) === 0) {
+          return cookie.substring(cookieName.length, cookie.length);
+        }
+      }
+      return "";
+    };
+    const deleteCookie = (name) => {
+      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+    };
+    const [seconds, setSeconds] = (0, import_react13.useState)(0);
+    (0, import_react13.useEffect)(() => {
+      const storedEndTime = getCookie("endTime");
+      let endTime;
+      if (storedEndTime) {
+        endTime = new Date(storedEndTime);
+        if (endTime <= /* @__PURE__ */ new Date()) {
+          deleteCookie("endTime");
+          endTime = calculateEndTime(isNaN(timer2) ? +timer2 : timer2);
+        }
+      } else {
+        endTime = calculateEndTime(isNaN(timer2) ? +timer2 : timer2);
+        setCookie("endTime", endTime.toUTCString(), 1);
+      }
+      setSeconds(getRemainingTimeInSeconds(endTime));
+      const interval = setInterval(() => {
+        setSeconds((prevSeconds) => {
+          if (prevSeconds <= 0) {
+            clearInterval(interval);
+            deleteCookie("endTime");
+            return 0;
           }
-        )
+          return prevSeconds - 1;
+        });
+      }, 1e3);
+      return () => {
+        clearInterval(interval);
+      };
+    }, []);
+    const formattedTime = import_react13.default.useMemo(() => {
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = seconds % 60;
+      return `${minutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
+    }, [seconds]);
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+      BlockStack2,
+      {
+        border: "base",
+        borderRadius: "base",
+        padding: "tight",
+        spacing: "loose",
+        blockAlignment: "center",
+        cornerRadius: "loose",
+        overflow: "hidden",
+        inlineAlignment: "center",
+        children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(View2, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Text2, { size: timer_text_size, appearance: timer_text_color, emphasis: "strong", children: timer_before_text }),
+          seconds > 0 ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Text2, { size: timer_size, emphasis: "strong", appearance: timer_color, children: formattedTime }) : /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Text2, { size: timer_size, appearance: timer_color, emphasis: "strong", children: timer_ends }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Text2, { size: timer_text_size, appearance: timer_text_color, emphasis: "strong", children: timer_after_text })
+        ] })
       }
     );
   }
-  function Survey({
-    title,
-    description,
-    onSubmit,
-    children,
-    loading
-  }) {
-    const [submitted, setSubmitted] = (0, import_react16.useState)(false);
-    function handleSubmit() {
-      return __async(this, null, function* () {
-        yield onSubmit();
-        setSubmitted(true);
-      });
-    }
-    if (submitted) {
-      return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(View2, { border: "base", padding: "base", borderRadius: "base", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(BlockStack2, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Heading2, { children: "Thanks for your feedback!" }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Text2, { children: "Your response has been submitted" })
-      ] }) });
-    }
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(View2, { border: "base", padding: "base", borderRadius: "base", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(BlockStack2, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Heading2, { children: title }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Text2, { children: description }),
-      children,
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Button2, { kind: "secondary", onPress: handleSubmit, loading, children: "Submit feedback" })
-    ] }) });
-  }
-  function useStorageState(key) {
-    const storage = useStorage();
-    const [data, setData] = (0, import_react16.useState)();
-    const [loading, setLoading] = (0, import_react16.useState)(true);
-    (0, import_react16.useEffect)(() => {
-      function queryStorage() {
-        return __async(this, null, function* () {
-          const value = yield storage.read(key);
-          setData(value);
-          setLoading(false);
-        });
-      }
-      queryStorage();
-    }, [setData, setLoading, storage, key]);
-    const setStorage = (0, import_react16.useCallback)((value) => {
-      storage.write(key, value);
-    }, [storage, key]);
-    return [{ data, loading }, setStorage];
-  }
 })();
-//# sourceMappingURL=post-purchase-survey.js.map
+//# sourceMappingURL=countdown.js.map

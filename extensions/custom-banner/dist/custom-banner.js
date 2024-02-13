@@ -627,7 +627,7 @@
             var newElement = ReactElement(oldElement.type, newKey, oldElement.ref, oldElement._self, oldElement._source, oldElement._owner, oldElement.props);
             return newElement;
           }
-          function cloneElement(element, config, children) {
+          function cloneElement2(element, config, children) {
             if (element === null || element === void 0) {
               throw new Error("React.cloneElement(...): The argument must be a React element, but you passed " + element + ".");
             }
@@ -675,7 +675,7 @@
             }
             return ReactElement(element.type, key, ref, self, source, owner, props);
           }
-          function isValidElement2(object) {
+          function isValidElement3(object) {
             return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
           }
           var SEPARATOR = ".";
@@ -740,7 +740,7 @@
                   return c;
                 });
               } else if (mappedChild != null) {
-                if (isValidElement2(mappedChild)) {
+                if (isValidElement3(mappedChild)) {
                   {
                     if (mappedChild.key && (!_child || _child.key !== mappedChild.key)) {
                       checkKeyStringCoercion(mappedChild.key);
@@ -828,7 +828,7 @@
             }) || [];
           }
           function onlyChild(children) {
-            if (!isValidElement2(children)) {
+            if (!isValidElement3(children)) {
               throw new Error("React.Children.only expected to receive a single React element child.");
             }
             return children;
@@ -1559,11 +1559,11 @@
             if (isArray(node)) {
               for (var i = 0; i < node.length; i++) {
                 var child = node[i];
-                if (isValidElement2(child)) {
+                if (isValidElement3(child)) {
                   validateExplicitKey(child, parentType);
                 }
               }
-            } else if (isValidElement2(node)) {
+            } else if (isValidElement3(node)) {
               if (node._store) {
                 node._store.validated = true;
               }
@@ -1574,7 +1574,7 @@
                   var iterator = iteratorFn.call(node);
                   var step;
                   while (!(step = iterator.next()).done) {
-                    if (isValidElement2(step.value)) {
+                    if (isValidElement3(step.value)) {
                       validateExplicitKey(step.value, parentType);
                     }
                   }
@@ -1697,7 +1697,7 @@
             return validatedFactory;
           }
           function cloneElementWithValidation(element, props, children) {
-            var newElement = cloneElement.apply(this, arguments);
+            var newElement = cloneElement2.apply(this, arguments);
             for (var i = 2; i < arguments.length; i++) {
               validateChildKeys(arguments[i], newElement.type);
             }
@@ -1918,7 +1918,7 @@
           exports.createFactory = createFactory;
           exports.createRef = createRef;
           exports.forwardRef = forwardRef;
-          exports.isValidElement = isValidElement2;
+          exports.isValidElement = isValidElement3;
           exports.lazy = lazy;
           exports.memo = memo2;
           exports.startTransition = startTransition;
@@ -18194,7 +18194,7 @@
           {
             propTypesMisspellWarningShown = false;
           }
-          function isValidElement2(object) {
+          function isValidElement3(object) {
             {
               return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
             }
@@ -18261,11 +18261,11 @@
               if (isArray(node)) {
                 for (var i = 0; i < node.length; i++) {
                   var child = node[i];
-                  if (isValidElement2(child)) {
+                  if (isValidElement3(child)) {
                     validateExplicitKey(child, parentType);
                   }
                 }
-              } else if (isValidElement2(node)) {
+              } else if (isValidElement3(node)) {
                 if (node._store) {
                   node._store.validated = true;
                 }
@@ -18276,7 +18276,7 @@
                     var iterator = iteratorFn.call(node);
                     var step;
                     while (!(step = iterator.next()).done) {
-                      if (isValidElement2(step.value)) {
+                      if (isValidElement3(step.value)) {
                         validateExplicitKey(step.value, parentType);
                       }
                     }
@@ -18402,10 +18402,10 @@
             }
           }
           var jsx5 = jsxWithValidationDynamic;
-          var jsxs2 = jsxWithValidationStatic;
+          var jsxs = jsxWithValidationStatic;
           exports.Fragment = REACT_FRAGMENT_TYPE;
           exports.jsx = jsx5;
-          exports.jsxs = jsxs2;
+          exports.jsxs = jsxs;
         })();
       }
     }
@@ -19121,26 +19121,8 @@
   // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/extension.mjs
   var extension = createExtensionRegistrationFunction();
 
-  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/BlockStack/BlockStack.mjs
-  var BlockStack = createRemoteComponent("BlockStack");
-
-  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/Button/Button.mjs
-  var Button = createRemoteComponent("Button");
-
-  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/Choice/Choice.mjs
-  var Choice = createRemoteComponent("Choice");
-
-  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/ChoiceList/ChoiceList.mjs
-  var ChoiceList = createRemoteComponent("ChoiceList");
-
-  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/Heading/Heading.mjs
-  var Heading = createRemoteComponent("Heading");
-
-  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/Text/Text.mjs
-  var Text = createRemoteComponent("Text");
-
-  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/View/View.mjs
-  var View = createRemoteComponent("View");
+  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/Banner/Banner.mjs
+  var Banner = createRemoteComponent("Banner");
 
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/render.mjs
   var import_react6 = __toESM(require_react(), 1);
@@ -19470,33 +19452,11 @@ ${errorInfo.componentStack}`);
     }
   };
 
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/BlockStack/BlockStack.mjs
-  var BlockStack2 = createRemoteReactComponent(BlockStack);
-
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/Button/Button.mjs
-  var Button2 = createRemoteReactComponent(Button, {
-    fragmentProps: ["overlay"]
-  });
-
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/Choice/Choice.mjs
-  var Choice2 = createRemoteReactComponent(Choice, {
-    fragmentProps: ["details", "primaryContent", "secondaryContent", "tertiaryContent"]
-  });
-
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/ChoiceList/ChoiceList.mjs
-  var ChoiceList2 = createRemoteReactComponent(ChoiceList);
-
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/Heading/Heading.mjs
-  var Heading2 = createRemoteReactComponent(Heading);
-
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/Text/Text.mjs
-  var Text2 = createRemoteReactComponent(Text);
-
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/View/View.mjs
-  var View2 = createRemoteReactComponent(View);
+  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/Banner/Banner.mjs
+  var Banner2 = createRemoteReactComponent(Banner);
 
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/hooks/api.mjs
-  var import_react15 = __toESM(require_react(), 1);
+  var import_react9 = __toESM(require_react(), 1);
 
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/errors.mjs
   var CheckoutUIExtensionError = class extends Error {
@@ -19508,151 +19468,81 @@ ${errorInfo.componentStack}`);
 
   // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/hooks/api.mjs
   function useApi(_target) {
-    const api = (0, import_react15.useContext)(ExtensionApiContext);
+    const api = (0, import_react9.useContext)(ExtensionApiContext);
     if (api == null) {
       throw new CheckoutUIExtensionError("You can only call this hook when running as a UI extension.");
     }
     return api;
   }
 
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/hooks/storage.mjs
-  function useStorage() {
-    return useApi().storage;
+  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/hooks/subscription.mjs
+  var import_react10 = __toESM(require_react(), 1);
+  function useSubscription(subscription) {
+    const [, setValue] = (0, import_react10.useState)(subscription.current);
+    (0, import_react10.useEffect)(() => {
+      let didUnsubscribe = false;
+      const checkForUpdates = (newValue) => {
+        if (didUnsubscribe) {
+          return;
+        }
+        setValue(newValue);
+      };
+      const unsubscribe = subscription.subscribe(checkForUpdates);
+      checkForUpdates(subscription.current);
+      return () => {
+        didUnsubscribe = true;
+        unsubscribe();
+      };
+    }, [subscription]);
+    return subscription.current;
   }
 
-  // extensions/post-purchase-survey/src/Checkout.jsx
-  var import_react16 = __toESM(require_react());
+  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/hooks/translate.mjs
+  var import_react11 = __toESM(require_react(), 1);
+  function useTranslate() {
+    const {
+      i18n
+    } = useApi();
+    const translate = (0, import_react11.useCallback)((...args) => {
+      const translation = i18n.translate(...args);
+      if (!Array.isArray(translation)) {
+        return translation;
+      }
+      return translation.map((part, index) => {
+        if (/* @__PURE__ */ (0, import_react11.isValidElement)(part)) {
+          return /* @__PURE__ */ (0, import_react11.cloneElement)(part, {
+            key: index
+          });
+        }
+        return part;
+      });
+    }, [i18n]);
+    return translate;
+  }
+
+  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/hooks/settings.mjs
+  function useSettings() {
+    const settings = useSubscription(useApi().settings);
+    return settings;
+  }
+
+  // extensions/custom-banner/src/Checkout.jsx
   var import_jsx_runtime4 = __toESM(require_jsx_runtime());
-  var thankYouBlock = reactExtension("purchase.thank-you.block.render", () => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Attribution, {}));
-  var orderDetailsBlock = reactExtension("customer-account.order-status.block.render", () => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(ProductReview, {}));
-  function Attribution() {
-    const [attribution, setAttribution] = (0, import_react16.useState)("");
-    const [loading, setLoading] = (0, import_react16.useState)(false);
-    const [attributionSubmitted, setAttributionSubmitted] = useStorageState("attribution-submitted");
-    const data = useStorageState("attribution-submitted");
-    function handleSubmit() {
-      return __async(this, null, function* () {
-        setLoading(true);
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            console.log("Submitted:", attribution);
-            setLoading(false);
-            setAttributionSubmitted(true);
-            resolve();
-          }, 750);
-        });
-      });
-    }
-    if (attributionSubmitted.loading || attributionSubmitted.data === true) {
-      return null;
-    }
-    console.log("data", data);
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Survey, { title: "How did you hear about us ?", onSubmit: handleSubmit, loading, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-      ChoiceList2,
-      {
-        name: "sale-attribution",
-        value: attribution,
-        onChange: setAttribution,
-        children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(BlockStack2, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "tv", children: "TV" }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "podcast", children: "Podcast" }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "family", children: "From a friend or family member" }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "tiktok", children: "Tiktok" })
-        ] })
-      }
-    ) });
-  }
-  function ProductReview() {
-    const [productReview, setProductReview] = (0, import_react16.useState)("");
-    const [loading, setLoading] = (0, import_react16.useState)(false);
-    const [productReviewed, setProductReviewed] = useStorageState("product-reviewed");
-    const storageData = useStorageState("product-reviewed");
-    function handleSubmit() {
-      return __async(this, null, function* () {
-        setLoading(true);
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            console.log("Submitted:", productReview);
-            setLoading(false);
-            setProductReviewed(true);
-            resolve();
-          }, 750);
-        });
-      });
-    }
-    if (productReviewed.loading || productReviewed.data) {
-      return null;
-    }
-    console.log("storage data", storageData);
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-      Survey,
-      {
-        title: "How do you like your purchase?",
-        description: "We would like to learn if you are enjoying your purchase.",
-        onSubmit: handleSubmit,
-        loading,
-        children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-          ChoiceList2,
-          {
-            name: "product-review",
-            value: productReview,
-            onChange: setProductReview,
-            children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(BlockStack2, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "5", children: "Amazing! Very happy with it." }),
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "4", children: "It's okay, I expected more." }),
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "3", children: "Eh. There are better options out there." }),
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "2", children: "I regret the purchase." })
-            ] })
-          }
-        )
-      }
-    );
-  }
-  function Survey({
-    title,
-    description,
-    onSubmit,
-    children,
-    loading
-  }) {
-    const [submitted, setSubmitted] = (0, import_react16.useState)(false);
-    function handleSubmit() {
-      return __async(this, null, function* () {
-        yield onSubmit();
-        setSubmitted(true);
-      });
-    }
-    if (submitted) {
-      return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(View2, { border: "base", padding: "base", borderRadius: "base", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(BlockStack2, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Heading2, { children: "Thanks for your feedback!" }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Text2, { children: "Your response has been submitted" })
-      ] }) });
-    }
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(View2, { border: "base", padding: "base", borderRadius: "base", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(BlockStack2, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Heading2, { children: title }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Text2, { children: description }),
-      children,
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Button2, { kind: "secondary", onPress: handleSubmit, loading, children: "Submit feedback" })
-    ] }) });
-  }
-  function useStorageState(key) {
-    const storage = useStorage();
-    const [data, setData] = (0, import_react16.useState)();
-    const [loading, setLoading] = (0, import_react16.useState)(true);
-    (0, import_react16.useEffect)(() => {
-      function queryStorage() {
-        return __async(this, null, function* () {
-          const value = yield storage.read(key);
-          setData(value);
-          setLoading(false);
-        });
-      }
-      queryStorage();
-    }, [setData, setLoading, storage, key]);
-    const setStorage = (0, import_react16.useCallback)((value) => {
-      storage.write(key, value);
-    }, [storage, key]);
-    return [{ data, loading }, setStorage];
+  var checkoutBlock = reactExtension(
+    "purchase.checkout.block.render",
+    () => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Extension, {})
+  );
+  var deliveryAddress = reactExtension(
+    "purchase.checkout.delivery-address.render-before",
+    () => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Extension, {})
+  );
+  function Extension() {
+    const translate = useTranslate();
+    const { extension: extension2 } = useApi();
+    const { title: merchantTitle, description, collapsible, status: merchantStatus } = useSettings();
+    const status = merchantStatus != null ? merchantStatus : "Custom Banner";
+    const title = merchantTitle != null ? merchantTitle : "Custom Banner";
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Banner2, { title, status, collapsible, children: description });
   }
 })();
-//# sourceMappingURL=post-purchase-survey.js.map
+//# sourceMappingURL=custom-banner.js.map

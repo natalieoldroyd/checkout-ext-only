@@ -1119,7 +1119,7 @@
             }
             return dispatcher;
           }
-          function useContext3(Context) {
+          function useContext2(Context) {
             var dispatcher = resolveDispatcher();
             {
               if (Context._context !== void 0) {
@@ -1133,7 +1133,7 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState2(initialState) {
+          function useState(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1145,7 +1145,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect2(create, deps) {
+          function useEffect(create, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useEffect(create, deps);
           }
@@ -1157,7 +1157,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useLayoutEffect(create, deps);
           }
-          function useCallback2(callback, deps) {
+          function useCallback(callback, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useCallback(callback, deps);
           }
@@ -1923,11 +1923,11 @@
           exports.memo = memo2;
           exports.startTransition = startTransition;
           exports.unstable_act = act;
-          exports.useCallback = useCallback2;
-          exports.useContext = useContext3;
+          exports.useCallback = useCallback;
+          exports.useContext = useContext2;
           exports.useDebugValue = useDebugValue;
           exports.useDeferredValue = useDeferredValue;
-          exports.useEffect = useEffect2;
+          exports.useEffect = useEffect;
           exports.useId = useId;
           exports.useImperativeHandle = useImperativeHandle;
           exports.useInsertionEffect = useInsertionEffect;
@@ -1935,7 +1935,7 @@
           exports.useMemo = useMemo2;
           exports.useReducer = useReducer;
           exports.useRef = useRef2;
-          exports.useState = useState2;
+          exports.useState = useState;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -19118,7 +19118,7 @@
     return extensionWrapper;
   }
 
-  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/extension.mjs
+  // node_modules/@shopify/ui-extensions/build/esm/surfaces/customer-account/extension.mjs
   var extension = createExtensionRegistrationFunction();
 
   // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/BlockStack/BlockStack.mjs
@@ -19127,22 +19127,13 @@
   // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/Button/Button.mjs
   var Button = createRemoteComponent("Button");
 
-  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/Choice/Choice.mjs
-  var Choice = createRemoteComponent("Choice");
+  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/Divider/Divider.mjs
+  var Divider = createRemoteComponent("Divider");
 
-  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/ChoiceList/ChoiceList.mjs
-  var ChoiceList = createRemoteComponent("ChoiceList");
+  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/TextBlock/TextBlock.mjs
+  var TextBlock = createRemoteComponent("TextBlock");
 
-  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/Heading/Heading.mjs
-  var Heading = createRemoteComponent("Heading");
-
-  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/Text/Text.mjs
-  var Text = createRemoteComponent("Text");
-
-  // node_modules/@shopify/ui-extensions/build/esm/surfaces/checkout/components/View/View.mjs
-  var View = createRemoteComponent("View");
-
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/render.mjs
+  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/customer-account/render.mjs
   var import_react6 = __toESM(require_react(), 1);
 
   // node_modules/@remote-ui/react/build/esm/render.mjs
@@ -19417,11 +19408,11 @@
     });
   }
 
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/context.mjs
+  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/customer-account/context.mjs
   var import_react5 = __toESM(require_react(), 1);
   var ExtensionApiContext = /* @__PURE__ */ (0, import_react5.createContext)(null);
 
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/render.mjs
+  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/customer-account/render.mjs
   var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
   function reactExtension(target, render3) {
     return extension(target, (root, api) => __async(this, null, function* () {
@@ -19478,181 +19469,24 @@ ${errorInfo.componentStack}`);
     fragmentProps: ["overlay"]
   });
 
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/Choice/Choice.mjs
-  var Choice2 = createRemoteReactComponent(Choice, {
-    fragmentProps: ["details", "primaryContent", "secondaryContent", "tertiaryContent"]
-  });
+  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/Divider/Divider.mjs
+  var Divider2 = createRemoteReactComponent(Divider);
 
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/ChoiceList/ChoiceList.mjs
-  var ChoiceList2 = createRemoteReactComponent(ChoiceList);
+  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/TextBlock/TextBlock.mjs
+  var TextBlock2 = createRemoteReactComponent(TextBlock);
 
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/Heading/Heading.mjs
-  var Heading2 = createRemoteReactComponent(Heading);
-
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/Text/Text.mjs
-  var Text2 = createRemoteReactComponent(Text);
-
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/components/View/View.mjs
-  var View2 = createRemoteReactComponent(View);
-
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/hooks/api.mjs
-  var import_react15 = __toESM(require_react(), 1);
-
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/errors.mjs
-  var CheckoutUIExtensionError = class extends Error {
-    constructor(...args) {
-      super(...args);
-      this.name = "CheckoutUIExtensionError";
-    }
-  };
-
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/hooks/api.mjs
-  function useApi(_target) {
-    const api = (0, import_react15.useContext)(ExtensionApiContext);
-    if (api == null) {
-      throw new CheckoutUIExtensionError("You can only call this hook when running as a UI extension.");
-    }
-    return api;
-  }
-
-  // node_modules/@shopify/ui-extensions-react/build/esm/surfaces/checkout/hooks/storage.mjs
-  function useStorage() {
-    return useApi().storage;
-  }
-
-  // extensions/post-purchase-survey/src/Checkout.jsx
-  var import_react16 = __toESM(require_react());
+  // extensions/ca-fulfillment-details/src/FulfillmentDelivery.jsx
   var import_jsx_runtime4 = __toESM(require_jsx_runtime());
-  var thankYouBlock = reactExtension("purchase.thank-you.block.render", () => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Attribution, {}));
-  var orderDetailsBlock = reactExtension("customer-account.order-status.block.render", () => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(ProductReview, {}));
-  function Attribution() {
-    const [attribution, setAttribution] = (0, import_react16.useState)("");
-    const [loading, setLoading] = (0, import_react16.useState)(false);
-    const [attributionSubmitted, setAttributionSubmitted] = useStorageState("attribution-submitted");
-    const data = useStorageState("attribution-submitted");
-    function handleSubmit() {
-      return __async(this, null, function* () {
-        setLoading(true);
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            console.log("Submitted:", attribution);
-            setLoading(false);
-            setAttributionSubmitted(true);
-            resolve();
-          }, 750);
-        });
-      });
-    }
-    if (attributionSubmitted.loading || attributionSubmitted.data === true) {
-      return null;
-    }
-    console.log("data", data);
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Survey, { title: "How did you hear about us ?", onSubmit: handleSubmit, loading, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-      ChoiceList2,
-      {
-        name: "sale-attribution",
-        value: attribution,
-        onChange: setAttribution,
-        children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(BlockStack2, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "tv", children: "TV" }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "podcast", children: "Podcast" }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "family", children: "From a friend or family member" }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "tiktok", children: "Tiktok" })
-        ] })
-      }
-    ) });
-  }
-  function ProductReview() {
-    const [productReview, setProductReview] = (0, import_react16.useState)("");
-    const [loading, setLoading] = (0, import_react16.useState)(false);
-    const [productReviewed, setProductReviewed] = useStorageState("product-reviewed");
-    const storageData = useStorageState("product-reviewed");
-    function handleSubmit() {
-      return __async(this, null, function* () {
-        setLoading(true);
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            console.log("Submitted:", productReview);
-            setLoading(false);
-            setProductReviewed(true);
-            resolve();
-          }, 750);
-        });
-      });
-    }
-    if (productReviewed.loading || productReviewed.data) {
-      return null;
-    }
-    console.log("storage data", storageData);
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-      Survey,
-      {
-        title: "How do you like your purchase?",
-        description: "We would like to learn if you are enjoying your purchase.",
-        onSubmit: handleSubmit,
-        loading,
-        children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-          ChoiceList2,
-          {
-            name: "product-review",
-            value: productReview,
-            onChange: setProductReview,
-            children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(BlockStack2, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "5", children: "Amazing! Very happy with it." }),
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "4", children: "It's okay, I expected more." }),
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "3", children: "Eh. There are better options out there." }),
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Choice2, { id: "2", children: "I regret the purchase." })
-            ] })
-          }
-        )
-      }
-    );
-  }
-  function Survey({
-    title,
-    description,
-    onSubmit,
-    children,
-    loading
-  }) {
-    const [submitted, setSubmitted] = (0, import_react16.useState)(false);
-    function handleSubmit() {
-      return __async(this, null, function* () {
-        yield onSubmit();
-        setSubmitted(true);
-      });
-    }
-    if (submitted) {
-      return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(View2, { border: "base", padding: "base", borderRadius: "base", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(BlockStack2, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Heading2, { children: "Thanks for your feedback!" }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Text2, { children: "Your response has been submitted" })
-      ] }) });
-    }
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(View2, { border: "base", padding: "base", borderRadius: "base", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(BlockStack2, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Heading2, { children: title }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Text2, { children: description }),
-      children,
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Button2, { kind: "secondary", onPress: handleSubmit, loading, children: "Submit feedback" })
-    ] }) });
-  }
-  function useStorageState(key) {
-    const storage = useStorage();
-    const [data, setData] = (0, import_react16.useState)();
-    const [loading, setLoading] = (0, import_react16.useState)(true);
-    (0, import_react16.useEffect)(() => {
-      function queryStorage() {
-        return __async(this, null, function* () {
-          const value = yield storage.read(key);
-          setData(value);
-          setLoading(false);
-        });
-      }
-      queryStorage();
-    }, [setData, setLoading, storage, key]);
-    const setStorage = (0, import_react16.useCallback)((value) => {
-      storage.write(key, value);
-    }, [storage, key]);
-    return [{ data, loading }, setStorage];
+  var FulfillmentDelivery_default = reactExtension(
+    "customer-account.order-status.fulfillment-details.render-after",
+    () => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(CustomerFulfillmentDetailsDelivery, {})
+  );
+  function CustomerFulfillmentDetailsDelivery() {
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(BlockStack2, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Divider2, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(TextBlock2, { children: "Tell us how we did for a chance to win 1000 points" }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(BlockStack2, { maxInlineSize: 150, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Button2, { appearance: "monochrome", kind: "secondary", children: "Write a review" }) })
+    ] });
   }
 })();
-//# sourceMappingURL=post-purchase-survey.js.map
+//# sourceMappingURL=ca-extension-fulfillment.js.map
